@@ -391,9 +391,9 @@ func (r *Dev) selectTag(serial []byte) (byte, error) {
 // readBlock reads the block from the card.
 //
 //  sector - card sector to read from
-//  block - the block within the sector (0-3 tor Mifare 4K)
+//  block - the block within the sector)
 func (r *Dev) readBlock(sector int, block int) ([]byte, error) {
-	return r.read(calcBlockAddress(sector, block%3))
+	return r.read(calcBlockAddress(sector, block))
 }
 
 // selectCard selects the card after the IRQ event was received.
