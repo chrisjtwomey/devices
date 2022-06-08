@@ -219,9 +219,9 @@ func (r *Dev) ReadAuth(timeout time.Duration, auth byte, sector int, key Key) (d
 //  auth        the authentiction mode.
 //  sector      the sector on the card to write to.
 //  block       the block within the sector to write into.
-//  data        16 bytes if data to write
-//  key          the key used to authenticate the card - depends on the used auth method.
-func (r *Dev) WriteCard(timeout time.Duration, auth byte, sector int, block int, data [16]byte, key Key) (err error) {
+//  data        16 bytes of data to write
+//  key         the key used to authenticate the card - depends on the used auth method.
+func (r *Dev) WriteCard(timeout time.Duration, auth byte, sector int, block int, data []byte, key Key) (err error) {
 	r.beforeCall()
 	defer func() {
 		r.afterCall()
